@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soubarno Pal Birthday Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+    }
+    header img {
+      height: 60px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    h1 {
+      margin: 5px 0;
+      font-size: 24px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+    .photo-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .photo-card:hover {
+      transform: scale(1.05);
+    }
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .download-btn {
+      display: block;
+      background: #007BFF;
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .download-btn:hover {
+      background: #0056b3;
+    }
+    footer {
+      background: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="LOGO.jpeg" alt="Company Logo">
+    <h1>Soubarno Pal</h1>
+    <p>Teinpur, Nadia, 741152</p>
+  </header>
+
+  <section class="gallery" id="gallery">
+    <!-- Photos will be loaded here using JavaScript -->
+  </section>
+
+  <footer>
+    <p>© 2025 Lets goo | Phone: +91-7047967960 | Contact: info@letsgoo.com</p>
+  </footer>
+
+  <script>
+    const gallery = document.getElementById("gallery");
+
+    // Load photos DSC00539.JPG to DSC00696.JPG from "Soubarno" folder
+    const start = 539;
+    const end = 696;
+
+    for (let i = start; i <= end; i++) {
+      let filename = "DSC00" + i + ".JPG"; 
+      let photoCard = document.createElement("div");
+      photoCard.className = "photo-card";
+      photoCard.innerHTML = `
+        <img src="Soubarno/${filename}" alt="Photo ${i}">
+        <a class="download-btn" href="Soubarno/${filename}" download>Download</a>
+      `;
+      gallery.appendChild(photoCard);
+    }
+  </script>
+
+</body>
+</html>
